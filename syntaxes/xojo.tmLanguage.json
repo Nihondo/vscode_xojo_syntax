@@ -1,0 +1,145 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Xojo",
+  "scopeName": "source.xojo",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#functions" },
+    { "include": "#variables" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.apostrophe.xojo",
+          "match": "(?<!:)'[^\\n]*"
+        },
+        {
+          "name": "comment.line.double-slash.xojo",
+          "match": "//[^\\n]*"
+        },
+        {
+          "name": "comment.line.number-sign.xojo",
+          "match": "#[^\\n]*"
+        },
+        {
+          "name": "comment.line.rem.xojo",
+          "match": "(?i)\\bREM\\b[^\\n]*"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "meta.function.declaration.xojo",
+          "begin": "(?i)\\b(function|sub|method|event|delegate)\\b\\s+([A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)*)\\s*\\(",
+          "beginCaptures": {
+            "1": { "name": "keyword.declaration.xojo" },
+            "2": { "name": "entity.name.function.xojo" },
+            "0": { "name": "meta.function.parameters.begin.xojo" }
+          },
+          "end": "\\)",
+          "endCaptures": {
+            "0": { "name": "meta.function.parameters.end.xojo" }
+          },
+          "patterns": [
+            { "name": "storage.modifier.parameter.xojo", "match": "(?i)\\b(ByRef|ByVal)\\b" },
+            { "name": "variable.parameter.xojo", "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b(?=\\s*\\bAs\\b)" },
+            { "name": "keyword.other.as.xojo", "match": "(?i)\\bAs\\b" },
+            { "match": ",", "name": "punctuation.separator.comma.xojo" }
+          ]
+        },
+        {
+          "name": "meta.function.call.xojo",
+          "match": "\\b([A-Za-z_][A-Za-z0-9_]*(?:\\.[A-Za-z_][A-Za-z0-9_]*)*)\\s*(?=\\()",
+          "captures": {
+            "1": { "name": "entity.name.function.call.xojo" }
+          }
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "meta.variable.declaration.xojo",
+          "begin": "(?i)\\b(dim|var)\\b",
+          "beginCaptures": { "1": { "name": "storage.type.modifier.xojo" } },
+          "end": "(?i)\\b(as)\\b|$",
+          "endCaptures": { "1": { "name": "keyword.other.as.xojo" } },
+          "patterns": [
+            { "name": "variable.other.declaration.xojo", "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b" },
+            { "match": ",", "name": "punctuation.separator.comma.xojo" }
+          ]
+        },
+        {
+          "name": "meta.constant.declaration.xojo",
+          "begin": "(?i)\\bconst\\b",
+          "beginCaptures": { "0": { "name": "storage.modifier.const.xojo" } },
+          "end": "(?i)\\b(as)\\b|=|$",
+          "endCaptures": { "1": { "name": "keyword.other.as.xojo" } },
+          "patterns": [
+            { "name": "variable.other.constant.xojo", "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b" },
+            { "match": ",", "name": "punctuation.separator.comma.xojo" }
+          ]
+        },
+        {
+          "name": "meta.variable.assignment.simple.xojo",
+          "match": "^\\s*([A-Za-z_][A-Za-z0-9_]*)\\s*(?==)",
+          "captures": { "1": { "name": "variable.other.assignment.xojo" } }
+        },
+        {
+          "name": "variable.other.readwrite.xojo",
+          "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b(?!\\s*\\()"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.xojo",
+          "begin": "\"",
+          "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.xojo" } },
+          "end": "\"",
+          "endCaptures": { "0": { "name": "punctuation.definition.string.end.xojo" } },
+          "patterns": [
+            { "name": "constant.character.escape.xojo", "match": "\\\\." }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        { "name": "constant.numeric.float.xojo", "match": "\\b\\d+\\.\\d*(e[+-]?\\d+)?\\b" },
+        { "name": "constant.numeric.integer.xojo", "match": "\\b\\d+\\b" }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.xojo",
+          "match": "(?i)\\b(if|then|else|elseif|end if|for|to|step|next|while|wend|select|case|end select|try|catch|finally|raise|return|break|continue)\\b"
+        },
+        {
+          "name": "storage.type.modifier.xojo",
+          "match": "(?i)\\b(dim|var|const|byref|byval|static|extends|private|public|protected|global|property|inherits|implements)\\b"
+        },
+        {
+          "name": "keyword.declaration.xojo",
+          "match": "(?i)\\b(function|sub|method|event|class|module|structure|interface|enum|delegate|addhandler|removehandler|raiseevent|end (function|sub|method|class|module|structure|interface|enum))\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "support.type.primitive.xojo",
+          "match": "(?i)\\b(boolean|integer|int8|int16|int32|int64|uinteger|uint8|uint16|uint32|uint64|single|double|string|cstring|pstring|text|variant|date|datetime|color|currency|ptr|object|dictionary|array)\\b"
+        }
+      ]
+    }
+  }
+}

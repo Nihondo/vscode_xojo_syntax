@@ -1,0 +1,6 @@
+.DS_Store
+.*/
+samples/
+*.vsix
+CLAUDE.md
+artworks/

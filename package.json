@@ -1,0 +1,75 @@
+{
+	"name": "xojo-syntax",
+	"displayName": "Xojo Syntax Support",
+	"description": "Xojo language support: syntax highlighting and Outline for .xojo_code / .xojo_window (classes, controls, methods, properties, events, menu handlers, constants).",
+	"version": "0.9.0",
+	"publisher": "nihondo",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.70.0"
+	},
+	"icon": "images/icon.png",
+	"main": "./extension.js",
+	"categories": [
+		"Programming Languages"
+	],
+	"keywords": [
+		"xojo",
+		"basic",
+		"syntax",
+		"outline",
+		"tmLanguage"
+	],
+	"contributes": {
+		"debuggers": [
+			{
+				"type": "xojo",
+				"label": "Xojo",
+				"program": "./extension.js"
+			}
+		],
+		"commands": [
+			{
+				"command": "xojo.reloadAndRun",
+				"title": "Xojo: Reload and Run"
+			},
+			{
+				"command": "xojo.createDefaultLaunch",
+				"title": "Xojo: Create Default launch.json"
+			}
+		],
+		"languages": [
+			{
+				"id": "xojo",
+				"aliases": [
+					"Xojo",
+					"xojo"
+				],
+				"extensions": [
+					".xojo_code",
+					".xojo_script",
+					".xojo_window",
+					".xojo_menu"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "xojo",
+				"scopeName": "source.xojo",
+				"path": "./syntaxes/xojo.tmLanguage.json"
+			}
+		]
+	},
+	"activationEvents": [
+		"onLanguage:xojo",
+		"onCommand:xojo.reloadAndRun",
+		"onCommand:xojo.createDefaultLaunch",
+		"onDebug:xojo"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Nihondo/vscode_xojo_syntax.git"
+	}
+}

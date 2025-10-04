@@ -1,0 +1,7 @@
+.*/
+samples/
+*.vsix
+CLAUDE.md
+.DS_Store
+.gitignore
+artworks/
