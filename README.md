@@ -28,6 +28,9 @@ A lightweight syntax highlighting extension for the Xojo programming language.
     -   Recursively parses menu hierarchies
     -   Displays `Text` attribute as menu item details
     -   Special handling for separators (`Text = "-"`)
+-   **`.xojo_library` API files**: Open Xojo files stored under the zipped library `API` folder as read-only virtual documents
+    -   Use **Xojo: Open Library API File** from the Command Palette or the Explorer context menu
+    -   The opened API file uses the same syntax highlighting and Outline support as normal `.xojo_code` / `.xojo_window` / `.xojo_menu` files
 -   **Generic code files**: Flat list of Sub/Function/Method/Event/Delegate declarations
 
 ### Xojo Integration (macOS only)
@@ -80,11 +83,13 @@ code --install-extension xojo-syntax-0.1.0.vsix --force
 
 -   Language ID: `xojo`
 -   Extensions: `.xojo_code`, `.xojo_script`, `.xojo_window`, `.xojo_menu`
+-   Library API viewer: `.xojo_library` files can be opened with **Xojo: Open Library API File**
 
 ## Known Limitations
 
 -   Not fully compatible with the official Xojo IDE
 -   Minimal string escape sequence handling
+-   `.xojo_library` support opens API text files from the archive; it does not edit or rewrite the library archive
 
 ## License
 

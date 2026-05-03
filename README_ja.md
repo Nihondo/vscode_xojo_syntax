@@ -28,6 +28,9 @@ Xojo 言語向けの軽量なシンタックスハイライト拡張です。
     -   メニュー階層を再帰的に解析
     -   `Text`属性をメニュー項目の詳細情報として表示
     -   セパレーター（`Text = "-"`）を特別扱い
+-   **`.xojo_library` APIファイル**: zip形式のライブラリ内の`API`配下にあるXojoファイルを読み取り専用の仮想ドキュメントとして開く
+    -   コマンドパレットまたは Explorer のコンテキストメニューから **Xojo: Open Library API File** を実行
+    -   開いたAPIファイルには通常の `.xojo_code` / `.xojo_window` / `.xojo_menu` と同じシンタックスハイライトとアウトライン機能を適用
 -   **汎用コードファイル**: Sub/Function/Method/Event/Delegate のフラットリスト
 
 ### Xojo 連携機能（macOS）
@@ -80,11 +83,13 @@ code --install-extension xojo-syntax-0.1.0.vsix --force
 
 -   言語 ID: `xojo`
 -   拡張子: `.xojo_code`, `.xojo_script`, `.xojo_window`, `.xojo_menu`
+-   ライブラリAPIビューア: `.xojo_library` は **Xojo: Open Library API File** で開けます
 
 ## 既知の制限
 
 -   実運用の Xojo IDE と完全互換ではありません
 -   文字列内エスケープは最小限です
+-   `.xojo_library` 対応はアーカイブ内のAPIテキストファイルを開く機能で、ライブラリアーカイブの編集や再書き込みは行いません
 
 ## ライセンス
 

@@ -36,8 +36,21 @@
 			{
 				"command": "xojo.createDefaultLaunch",
 				"title": "Xojo: Create Default launch.json"
+			},
+			{
+				"command": "xojo.openLibraryApiFile",
+				"title": "Xojo: Open Library API File"
 			}
 		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "xojo.openLibraryApiFile",
+					"when": "resourceExtname == .xojo_library",
+					"group": "navigation"
+				}
+			]
+		},
 		"languages": [
 			{
 				"id": "xojo",
@@ -66,6 +79,7 @@
 		"onLanguage:xojo",
 		"onCommand:xojo.reloadAndRun",
 		"onCommand:xojo.createDefaultLaunch",
+		"onCommand:xojo.openLibraryApiFile",
 		"onDebug:xojo"
 	],
 	"repository": {
