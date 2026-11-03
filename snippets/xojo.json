@@ -1,0 +1,106 @@
+{
+  "If": {
+    "prefix": "xojo-if",
+    "body": [
+      "If ${1:condition} Then",
+      "\t$0",
+      "End If"
+    ],
+    "description": "If (Xojo)"
+  },
+  "Select Case": {
+    "prefix": "xojo-select",
+    "body": [
+      "Select Case ${1:value}",
+      "Case ${2:value}",
+      "\t$0",
+      "Case Else",
+      "\t",
+      "End Select"
+    ],
+    "description": "Select Case (Xojo)"
+  },
+  "For": {
+    "prefix": "xojo-for",
+    "body": [
+      "For ${1:i} As Integer = ${2:0} To ${3:count - 1}",
+      "\t$0",
+      "Next"
+    ],
+    "description": "For (Xojo)"
+  },
+  "For Each": {
+    "prefix": "xojo-foreach",
+    "body": [
+      "For Each ${1:item} As ${2:String} In ${3:items}",
+      "\t$0",
+      "Next"
+    ],
+    "description": "For Each (Xojo)"
+  },
+  "While": {
+    "prefix": "xojo-while",
+    "body": [
+      "While ${1:condition}",
+      "\t$0",
+      "Wend"
+    ],
+    "description": "While (Xojo)"
+  },
+  "Do Until": {
+    "prefix": "xojo-do",
+    "body": [
+      "Do",
+      "\t$0",
+      "Loop Until ${1:condition}"
+    ],
+    "description": "Do Until (Xojo)"
+  },
+  "Try Catch": {
+    "prefix": "xojo-try",
+    "body": [
+      "Try",
+      "\t$0",
+      "Catch ${1:error} As ${2:RuntimeException}",
+      "\t",
+      "End Try"
+    ],
+    "description": "Try Catch (Xojo)"
+  },
+  "Sub": {
+    "prefix": "xojo-sub",
+    "body": [
+      "Sub ${1:Name}(${2:parameters})",
+      "\t$0",
+      "End Sub"
+    ],
+    "description": "Sub (Xojo)"
+  },
+  "Function": {
+    "prefix": "xojo-function",
+    "body": [
+      "Function ${1:Name}(${2:parameters}) As ${3:String}",
+      "\t$0",
+      "End Function"
+    ],
+    "description": "Function (Xojo)"
+  },
+  "Constant": {
+    "prefix": "xojo-const",
+    "body": [
+      "Const ${1:Name} As ${2:Integer} = ${3:0}$0"
+    ],
+    "description": "Constant (Xojo)"
+  },
+  "Conditional compilation": {
+    "prefix": "xojo-ifdef",
+    "body": [
+      "#If ${1:TargetMacOS} Then",
+      "\t$0",
+      "#Else",
+      "\t",
+      "#EndIf"
+    ],
+    "description": "Conditional compilation (Xojo)"
+  }
+}

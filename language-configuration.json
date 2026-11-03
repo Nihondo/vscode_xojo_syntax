@@ -1,19 +1,64 @@
 {
   "brackets": [
-    ["{", "}"],
-    ["[", "]"],
-    ["(", ")"]
+    [
+      "{",
+      "}"
+    ],
+    [
+      "[",
+      "]"
+    ],
+    [
+      "(",
+      ")"
+    ]
   ],
   "autoClosingPairs": [
-    { "open": "{", "close": "}" },
-    { "open": "[", "close": "]" },
-    { "open": "(", "close": ")" },
-    { "open": "\"", "close": "\"", "notIn": ["string"] }
+    {
+      "open": "{",
+      "close": "}"
+    },
+    {
+      "open": "[",
+      "close": "]"
+    },
+    {
+      "open": "(",
+      "close": ")"
+    },
+    {
+      "open": "\"",
+      "close": "\"",
+      "notIn": [
+        "string",
+        "comment"
+      ]
+    }
   ],
   "surroundingPairs": [
-    ["{", "}"],
-    ["[", "]"],
-    ["(", ")"],
-    ["\"", "\""]
-  ]
+    [
+      "{",
+      "}"
+    ],
+    [
+      "[",
+      "]"
+    ],
+    [
+      "(",
+      ")"
+    ],
+    [
+      "\"",
+      "\""
+    ]
+  ],
+  "comments": {
+    "lineComment": "'"
+  },
+  "indentationRules": {
+    "increaseIndentPattern": "^\\s*(?:#?[Ii][Ff]\\s+(?:\"(?:[^\"\\r\\n]|\"\")*\"|(?!(?:[Tt][Hh][Ee][Nn])\\b)(?:[^\\\"'/\\r\\n]|/(?!/)))+(?:[Tt][Hh][Ee][Nn]\\s*)?|(?:[Ee][Ll][Ss][Ee][Ii][Ff])\\s+(?:\"(?:[^\"\\r\\n]|\"\")*\"|(?!(?:[Tt][Hh][Ee][Nn])\\b)(?:[^\\\"'/\\r\\n]|/(?!/)))+(?:[Tt][Hh][Ee][Nn]\\s*)?|#[Ee][Ll][Ss][Ee][Ii][Ff]\\s+(?:\"(?:[^\"\\r\\n]|\"\")*\"|(?!(?:[Tt][Hh][Ee][Nn])\\b)(?:[^\\\"'/\\r\\n]|/(?!/)))+(?:[Tt][Hh][Ee][Nn]\\s*)?|#?[Ee][Ll][Ss][Ee]|(?:(?:[Pp][Rr][Ii][Vv][Aa][Tt][Ee]|[Pp][Uu][Bb][Ll][Ii][Cc]|[Pp][Rr][Oo][Tt][Ee][Cc][Tt][Ee][Dd]|[Gg][Ll][Oo][Bb][Aa][Ll]|[Ss][Hh][Aa][Rr][Ee][Dd]|[Ss][Tt][Aa][Tt][Ii][Cc])\\s+)*(?:[Ss][Uu][Bb]|[Ff][Uu][Nn][Cc][Tt][Ii][Oo][Nn]|[Mm][Ee][Tt][Hh][Oo][Dd]|[Cc][Ll][Aa][Ss][Ss]|[Mm][Oo][Dd][Uu][Ll][Ee]|[Ii][Nn][Tt][Ee][Rr][Ff][Aa][Cc][Ee]|[Ss][Tt][Rr][Uu][Cc][Tt][Uu][Rr][Ee]|[Ee][Nn][Uu][Mm])\\s+(?:\"(?:[^\"\\r\\n]|\"\")*\"|[^\\\"'/\\r\\n]|/(?!/))+|[Ss][Ee][Ll][Ee][Cc][Tt]\\s+[Cc][Aa][Ss][Ee]\\s+(?:\"(?:[^\"\\r\\n]|\"\")*\"|[^\\\"'/\\r\\n]|/(?!/))+|(?:[Ff][Oo][Rr]|[Ww][Hh][Ii][Ll][Ee])\\s+(?:\"(?:[^\"\\r\\n]|\"\")*\"|[^\\\"'/\\r\\n]|/(?!/))+|[Dd][Oo](?:\\s+(?:\"(?:[^\"\\r\\n]|\"\")*\"|[^\\\"'/\\r\\n]|/(?!/))+)?|(?:[Tt][Rr][Yy]|[Ff][Ii][Nn][Aa][Ll][Ll][Yy]|[Gg][Ee][Tt]|[Ss][Ee][Tt])|(?:[Cc][Aa][Ss][Ee]|[Cc][Aa][Tt][Cc][Hh])(?:\\s+(?:\"(?:[^\"\\r\\n]|\"\")*\"|[^\\\"'/\\r\\n]|/(?!/))+)?|[Bb][Ee][Gg][Ii][Nn]\\s+(?:\"(?:[^\"\\r\\n]|\"\")*\"|[^\\\"'/\\r\\n]|/(?!/))+|#[Tt][Aa][Gg]\\s+(?![Ee][Nn][Dd])[A-Za-z]+\\b(?:\"(?:[^\"\\r\\n]|\"\")*\"|[^\\\"'/\\r\\n]|/(?!/))*)\\s*(?:(?:'|//|[Rr][Ee][Mm]\\b).*)?$",
+    "decreaseIndentPattern": "^\\s*(?:(?:[Ee][Nn][Dd])(?:\\s+\\w+)?|(?:[Nn][Ee][Xx][Tt]|[Ww][Ee][Nn][Dd]|[Ll][Oo][Oo][Pp]|[Ee][Ll][Ss][Ee]|[Ee][Ll][Ss][Ee][Ii][Ff]|[Cc][Aa][Ss][Ee]|[Cc][Aa][Tt][Cc][Hh]|[Ff][Ii][Nn][Aa][Ll][Ll][Yy])\\b|#(?:[Ee][Ll][Ss][Ee]|[Ee][Ll][Ss][Ee][Ii][Ff]|[Ee][Nn][Dd][Ii][Ff])\\b|#[Tt][Aa][Gg]\\s+[Ee][Nn][Dd]\\w+\\b)",
+    "unIndentedLinePattern": "^\\s*(?:(?:'|//|[Rr][Ee][Mm]\\b).*)$"
+  }
 }

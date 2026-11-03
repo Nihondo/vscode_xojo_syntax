@@ -5,3 +5,7 @@ CLAUDE.md
 .DS_Store
 .gitignore
 artworks/
+test/
+plans/
+docs/
+handoff.md

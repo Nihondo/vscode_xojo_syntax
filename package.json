@@ -1,8 +1,8 @@
 {
 	"name": "xojo-syntax",
 	"displayName": "Xojo Syntax Support",
-	"description": "Xojo language support: syntax highlighting and Outline for .xojo_code / .xojo_window (classes, controls, methods, properties, events, menu handlers, constants).",
-	"version": "0.9.0",
+	"description": "Xojo language support: highlighting, Outline, workspace symbol search, folding, color previews, editing helpers, and library API browsing.",
+	"version": "1.0.0",
 	"publisher": "nihondo",
 	"license": "MIT",
 	"engines": {
@@ -25,9 +25,61 @@
 			{
 				"type": "xojo",
 				"label": "Xojo",
-				"program": "./extension.js"
+				"program": "./extension.js",
+				"configurationAttributes": {
+					"launch": {
+						"properties": {
+							"runMode": {
+								"type": "string",
+								"enum": ["auto", "agentic", "legacy"],
+								"description": "Override xojo.run.mode. Auto uses the Agentic file protocol when the manifest has AgenticMode=True; otherwise use macOS shortcuts."
+							},
+							"projectPath": {
+								"type": "string",
+								"description": "Path to a .xojo_project file, absolute or relative to the launch workspace folder."
+							},
+							"openProject": {
+								"type": "boolean",
+								"default": true,
+								"description": "Open the selected project in Xojo on macOS before running. On other platforms open it manually."
+							},
+							"openDelayMs": {
+								"type": "number", "minimum": 0, "default": 800,
+								"description": "Wait after opening Xojo on macOS."
+							},
+							"reloadDialogDelayMs": {
+								"type": "number", "minimum": 0, "default": 300,
+								"description": "Legacy mode: wait before confirming the reload dialog."
+							},
+							"reloadToRunDelayMs": {
+								"type": "number", "minimum": 0, "default": 500,
+								"description": "Legacy mode: wait between reloading and running."
+							},
+							"agenticTimeoutMs": {
+								"type": "number", "minimum": 1, "default": 30000,
+								"description": "Agentic mode: maximum wait for Xojo to consume the run request."
+							},
+							"agenticErrorWaitMs": {
+								"type": "number", "minimum": 0, "default": 10000,
+								"description": "Agentic mode: observe compile error output after the request is consumed. This is not a build completion signal."
+							}
+						}
+					}
+				}
 			}
 		],
+		"configuration": {
+			"title": "Xojo",
+			"properties": {
+				"xojo.run.mode": {
+					"type": "string",
+					"enum": ["auto", "agentic", "legacy"],
+					"default": "auto",
+					"scope": "resource",
+					"description": "Run protocol. Auto reads AgenticMode=True from the selected project. Agentic requires Xojo 2026r3+ with the project open in Agentic Mode. Legacy uses macOS shortcuts."
+				}
+			}
+		},
 		"commands": [
 			{
 				"command": "xojo.reloadAndRun",
@@ -73,6 +125,12 @@
 				"scopeName": "source.xojo",
 				"path": "./syntaxes/xojo.tmLanguage.json"
 			}
+		],
+		"snippets": [
+			{
+				"language": "xojo",
+				"path": "./snippets/xojo.json"
+			}
 		]
 	},
 	"activationEvents": [
@@ -80,10 +138,19 @@
 		"onCommand:xojo.reloadAndRun",
 		"onCommand:xojo.createDefaultLaunch",
 		"onCommand:xojo.openLibraryApiFile",
-		"onDebug:xojo"
+		"onDebug:xojo",
+		"workspaceContains:**/*.{xojo_code,xojo_script,xojo_window,xojo_menu}"
 	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Nihondo/vscode_xojo_syntax.git"
+	},
+	"scripts": {
+		"test": "node --test test/*.test.js"
+	},
+	"devDependencies": {
+		"@vscode/vsce": "^4.1.0",
+		"vscode-oniguruma": "^2.0.1",
+		"vscode-textmate": "^9.3.2"
 	}
 }
