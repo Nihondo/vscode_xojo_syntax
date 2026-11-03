@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.0
+
+- Add project execution through Xojo 2026r3 Agentic Mode with compile-error output
+- Add workspace-wide symbol search with support for unsaved changes
+- Add structural folding for code blocks and project tags
+- Add color previews and a color picker for Xojo color literals
+- Add comment toggling, automatic indentation, and eleven code snippets
+- Add read-only browsing of library API files
+- Improve Outline for complex declarations, computed properties, delegates, and enum members
+- Correct string and literal highlighting and soften project tag colors
+
 ## 0.9.0
 
 -   Added outline support for the menu hierarchy in `.xojo_menu` files.
